@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  tests:
+    build:
+      context: .
+      dockerfile: src/docker/tests/Dockerfile
+    command: mvn test dependency:go-offline
+
+  app:
+    depends_on:
+      - tests
+    build:
+      context: .
+      dockerfile: src/docker/app/Dockerfile
+    ports:
+      - 8080:8080
+      - 8778:8778
+      - 9779:9779
