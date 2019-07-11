@@ -2,32 +2,48 @@
 
 Quarkus microservice template to serve as model for microservice projects.
 
+---
+
 ## Pre-requisites
 
-- Java 1.8+ with `JAVA_HOME` configured
+- Java 1.8+ with `JAVA_HOME` configured or
+- Docker Compose installed
+
+---
 
 ## Make Commands
 
 The **Makefile** contains the instructions used to generate this project as well the project command log history.
 
+### Bootstrap
+
 ```bash
 make bootstrap # Bootstraps the Quarkus project (Depends on Maven 3.5.3+ installed)
 ```
 
+### Test
+
 ```bash
-# Run the tests...
-make test
+# Run the tests using local Maven...
+make tests
 ```
 
 ```bash
-# Builds and package the application artifact...
-make build
+# Run the tests using Docker Compose...
+make dc-tests
+```
+
+### App
+
+```bash
+# Runs the application using local Maven...
+make app
 ```
 
 ```bash
-# Runs the application locally...
-$ make start
-Running the tests and building the package artifact...
-2019-07-10 23:02:07,762 INFO  [io.quarkus] (main) Quarkus 0.18.0 started in 0.691s. Listening on: http://[::]:8080
-2019-07-10 23:02:07,770 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, resteasy-jsonb]
+# Runs the application using local Docker Compose...
+make dc-app
 ```
+
+---
+© Grand'Anderson - #grandanderson :)
